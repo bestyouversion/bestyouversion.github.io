@@ -7,5 +7,5 @@ export default defineConfig({
     port: 3000,
     open: true
   },
-  base: '/' // Change to '/repo-name/' for GitHub Pages
+  base: '/bestyouversion/'
 })

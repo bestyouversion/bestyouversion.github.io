@@ -8,6 +8,8 @@ import BookingSection from './components/BookingSection'
 import Footer from './components/Footer'
 import AdminLogin from './pages/AdminLogin'
 import AdminDashboard from './pages/AdminDashboard'
+import TherapyPage from './pages/TherapyPage'
+import { ArticlesPage, ArticlePage } from './pages/ArticlesPage'
 import { PaymentSuccess, PaymentFailed } from './pages/PaymentResult'
 
 function HomePage() {
@@ -47,6 +49,9 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/therapy/:type" element={<TherapyPage />} />
+      <Route path="/articles" element={<ArticlesPage />} />
+      <Route path="/articles/:id" element={<ArticlePage />} />
       <Route path="/admin" element={<AdminPage />} />
       <Route path="/payment/success" element={<PaymentSuccess />} />
       <Route path="/payment/failed" element={<PaymentFailed />} />

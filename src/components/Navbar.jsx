@@ -5,6 +5,7 @@ const NAV_LINKS = [
   { id: 'home', path: '/', label: 'Home' },
   { id: 'about', path: '/#about', label: 'About' },
   { id: 'services', path: '/#services', label: 'Services' },
+  { id: 'articles', path: '/articles', label: 'Articles', isPage: true },
   { id: 'book', path: '/#book', label: 'Book' },
 ]
 
