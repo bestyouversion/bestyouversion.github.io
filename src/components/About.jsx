@@ -11,7 +11,7 @@ export default function About() {
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 40, marginBottom: 60, alignItems: 'center' }}>
           <div style={{ borderRadius: 'var(--radius-xl)', overflow: 'hidden', border: '1px solid var(--accent-border)' }}>
-            <img src={IMAGES.adeProfile} alt="Ademar Cutang" style={{ width: '100%', height: 'auto', display: 'block' }} />
+            <img src={IMAGES.adeProfile} alt="Ademar Cutang" style={{ width: '100%', height: 450, objectFit: 'cover', objectPosition: 'top right', display: 'block' }} />
           </div>
           <div>
             <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 28, fontWeight: 600, color: 'var(--text-secondary)', margin: '0 0 4px' }}>{ADE_BIO.name}</h3>
