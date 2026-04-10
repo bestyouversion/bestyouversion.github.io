@@ -62,7 +62,7 @@ export default function BookingSection() {
     try {
       const dateStr = format(selectedDate, 'yyyy-MM-dd')
 
-      // 1. Create booking in Supabase
+      // 1. Create booking
       const booking = await createBooking({
         date: dateStr,
         time: selectedTime,
@@ -73,7 +73,7 @@ export default function BookingSection() {
       })
 
       // 2. Create PayMongo checkout session
-      const { checkoutUrl } = await createCheckoutSession({
+      const result = await createCheckoutSession({
         id: booking.id,
         amount: 150000,
         date: format(selectedDate, 'MMM d, yyyy'),
@@ -83,8 +83,13 @@ export default function BookingSection() {
         clientPhone: phone,
       })
 
-      // 3. Redirect to PayMongo checkout
-      window.location.href = checkoutUrl
+      // 3. Redirect to PayMongo checkout or show demo message
+      if (result.isDemo) {
+        setStep(4) // Show confirmation in demo mode
+        setPaying(false)
+      } else {
+        window.location.href = result.checkoutUrl
+      }
     } catch (err) {
       console.error('Booking error:', err)
       setError('Something went wrong. Please try again.')
@@ -355,6 +360,53 @@ export default function BookingSection() {
             }}>
               Accepts GCash · Maya · Credit/Debit Cards
             </div>
+          </div>
+        )}
+
+        {/* Step 4: Demo confirmation (when Supabase/PayMongo not connected yet) */}
+        {step === 4 && (
+          <div style={{ textAlign: 'center' }}>
+            <div style={{
+              width: 72, height: 72, borderRadius: '50%', margin: '0 auto 24px',
+              background: 'rgba(80,180,100,0.15)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontSize: 32, color: '#5CB870',
+            }}>✓</div>
+            <h3 style={{
+              fontFamily: 'var(--font-display)', fontSize: 28, fontWeight: 500,
+              color: 'var(--text-primary)', margin: '0 0 12px',
+            }}>Booking Submitted</h3>
+            <p style={{
+              fontFamily: 'var(--font-body)', fontSize: 15, lineHeight: 1.7,
+              color: 'var(--text-muted)', margin: '0 0 8px',
+            }}>
+              {name}, your session on {selectedDate ? format(selectedDate, 'EEE, MMM d, yyyy') : ''} at {TIME_LABELS[selectedTime]} has been received.
+            </p>
+            <p style={{
+              fontFamily: 'var(--font-body)', fontSize: 14, lineHeight: 1.6,
+              color: 'var(--text-faint)', margin: '0 0 32px',
+            }}>
+              Payment processing will be available soon. We'll contact you at {email} to confirm your booking and arrange payment.
+            </p>
+            <div style={{
+              padding: '20px 24px', borderRadius: 'var(--radius-lg)',
+              background: 'rgba(196,149,106,0.04)',
+              border: '1px solid var(--accent-border)',
+              marginBottom: 24, textAlign: 'left',
+            }}>
+              <div style={{ fontFamily: 'var(--font-body)', fontSize: 12, color: 'var(--text-faint)', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Contact us to confirm</div>
+              <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.8 }}>
+                Email: ade@bestyouversion.com<br />
+                WhatsApp: +63 919 374 6888
+              </div>
+            </div>
+            <button onClick={() => { setStep(1); setSelectedDate(null); setSelectedTime(null); setName(''); setEmail(''); setPhone(''); setNotes(''); }} style={{
+              padding: '14px 32px',
+              background: 'linear-gradient(135deg, var(--accent), var(--accent-dark))',
+              color: 'var(--bg-primary)', border: 'none', borderRadius: 'var(--radius-pill)',
+              cursor: 'pointer', fontFamily: 'var(--font-body)', fontSize: 14, fontWeight: 600,
+              textTransform: 'uppercase', letterSpacing: '0.1em',
+            }}>Book Another Session</button>
           </div>
         )}
       </div>

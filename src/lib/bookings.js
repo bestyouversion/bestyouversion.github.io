@@ -1,16 +1,16 @@
-import { supabase } from './supabase'
+import { supabase, isSupabaseConfigured } from './supabase'
+
+const ALL_SLOTS = [
+  '09:00', '10:00', '11:00',
+  '13:00', '14:00', '15:00', '16:00',
+]
 
 /**
  * Fetch available time slots for a given date.
- * Returns times that are NOT already booked.
  */
 export async function getAvailableSlots(date) {
-  const ALL_SLOTS = [
-    '09:00', '10:00', '11:00',
-    '13:00', '14:00', '15:00', '16:00',
-  ]
+  if (!isSupabaseConfigured) return ALL_SLOTS
 
-  // Get booked slots for this date
   const { data: booked, error } = await supabase
     .from('bookings')
     .select('time_slot')
@@ -24,9 +24,24 @@ export async function getAvailableSlots(date) {
 }
 
 /**
- * Create a new booking (status = pending_payment)
+ * Create a new booking
  */
 export async function createBooking({ date, time, clientName, clientEmail, clientPhone, notes }) {
+  if (!isSupabaseConfigured) {
+    // Return a mock booking for demo/offline mode
+    return {
+      id: 'demo-' + Date.now(),
+      booking_date: date,
+      time_slot: time,
+      client_name: clientName,
+      client_email: clientEmail,
+      client_phone: clientPhone,
+      notes: notes || null,
+      status: 'pending_payment',
+      amount: 150000,
+    }
+  }
+
   const { data, error } = await supabase
     .from('bookings')
     .insert({
@@ -37,7 +52,7 @@ export async function createBooking({ date, time, clientName, clientEmail, clien
       client_phone: clientPhone,
       notes: notes || null,
       status: 'pending_payment',
-      amount: 150000, // ₱1,500 in centavos
+      amount: 150000,
     })
     .select()
     .single()
@@ -50,6 +65,25 @@ export async function createBooking({ date, time, clientName, clientEmail, clien
  * Get all bookings (admin)
  */
 export async function getAllBookings({ status, from, to } = {}) {
+  if (!isSupabaseConfigured) {
+    return [
+      {
+        id: '1', booking_date: '2026-04-12', time_slot: '09:00',
+        client_name: 'Maria Santos', client_email: 'maria@email.com',
+        client_phone: '+63 917 123 4567', status: 'confirmed',
+        amount: 150000, notes: 'First session, anxiety management',
+        created_at: '2026-04-10T08:00:00Z',
+      },
+      {
+        id: '2', booking_date: '2026-04-12', time_slot: '14:00',
+        client_name: 'Juan Cruz', client_email: 'juan@email.com',
+        client_phone: '+63 918 765 4321', status: 'pending_payment',
+        amount: 150000, notes: null,
+        created_at: '2026-04-10T10:30:00Z',
+      },
+    ]
+  }
+
   let query = supabase
     .from('bookings')
     .select('*')
@@ -69,6 +103,8 @@ export async function getAllBookings({ status, from, to } = {}) {
  * Update booking status (admin)
  */
 export async function updateBookingStatus(bookingId, status) {
+  if (!isSupabaseConfigured) return { id: bookingId, status }
+
   const { data, error } = await supabase
     .from('bookings')
     .update({ status, updated_at: new Date().toISOString() })

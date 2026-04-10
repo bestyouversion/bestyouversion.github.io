@@ -1,4 +1,5 @@
 import { IMAGES, ADE_BIO } from '../data/content'
+import { MindfulnessIllustration, GrowthIllustration } from './Illustrations'
 
 export default function About() {
   return (
@@ -36,14 +37,18 @@ export default function About() {
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 40 }}>
           <div>
-            <img src={IMAGES.journey1} alt="Therapy session" style={{ width: '100%', height: 200, objectFit: 'cover', borderRadius: 'var(--radius-lg)', marginBottom: 20, border: '1px solid var(--accent-border)' }} />
+            <div style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', marginBottom: 20, border: '1px solid var(--accent-border)' }}>
+              <MindfulnessIllustration />
+            </div>
             <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 500, color: 'var(--text-secondary)', margin: '0 0 12px' }}>Our philosophy</h3>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: 15, lineHeight: 1.8, color: 'var(--text-muted)', margin: 0 }}>
               At Best You Version, we believe in the power of the mind and its ability to heal and transform. Our philosophy is centered around empowering individuals to take control of their thoughts and emotions, and we use Neuro Linguistic Programming, Cognitive Behavioral Therapy, EMDR and Hypnotherapy to facilitate this process.
             </p>
           </div>
           <div>
-            <img src={IMAGES.journey2} alt="Personal growth" style={{ width: '100%', height: 200, objectFit: 'cover', borderRadius: 'var(--radius-lg)', marginBottom: 20, border: '1px solid var(--accent-border)' }} />
+            <div style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', marginBottom: 20, border: '1px solid var(--accent-border)' }}>
+              <GrowthIllustration />
+            </div>
             <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 500, color: 'var(--text-secondary)', margin: '0 0 12px' }}>Our approach</h3>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: 15, lineHeight: 1.8, color: 'var(--text-muted)', margin: 0 }}>
               Our approach to NLP, CBT, EMDR and hypnotherapy is holistic and integrative, incorporating elements of mindfulness, cognitive-behavioral therapy, and other evidence-based practices. We work collaboratively with our clients to identify their goals and develop personalized treatment plans.

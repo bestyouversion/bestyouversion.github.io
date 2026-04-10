@@ -11,6 +11,7 @@ import AdminDashboard from './pages/AdminDashboard'
 import TherapyPage from './pages/TherapyPage'
 import { ArticlesPage, ArticlePage } from './pages/ArticlesPage'
 import { PaymentSuccess, PaymentFailed } from './pages/PaymentResult'
+import PrivacyPage from './pages/PrivacyPage'
 
 function HomePage() {
   const scrollToBook = () => {
@@ -55,6 +56,7 @@ export default function App() {
       <Route path="/admin" element={<AdminPage />} />
       <Route path="/payment/success" element={<PaymentSuccess />} />
       <Route path="/payment/failed" element={<PaymentFailed />} />
+      <Route path="/privacy" element={<PrivacyPage />} />
     </Routes>
   )
 }

@@ -1,17 +1,8 @@
 const BASE = import.meta.env.BASE_URL
 
 export const IMAGES = {
-  heroAbout: `${BASE}images/hero-about.jpg`,
-  journey1: `${BASE}images/journey1.jpg`,
-  journey2: `${BASE}images/journey2.jpg`,
-  services1: `${BASE}images/services1.jpg`,
-  services2: `${BASE}images/services2.jpg`,
-  consultation: `${BASE}images/consultation.jpg`,
   adeProfile: `${BASE}images/ade-profile.jpg`,
   adeJoin: `${BASE}images/ade-join.jpg`,
-  articleHypno: `${BASE}images/article-hypno.jpg`,
-  articleABC: `${BASE}images/article-abc.jpg`,
-  articleBeliefs: `${BASE}images/article-beliefs.jpg`,
 }
 
 export const ADE_BIO = {
@@ -66,6 +57,17 @@ export const THERAPY_PAGES = {
       { heading: 'Common misconceptions', content: 'It\'s not stage hypnosis — our focus is therapeutic. You\'ll remember your hypnotic state. You remain in control and cannot be coerced. Hypnotizability doesn\'t correlate with intelligence.' },
     ],
   },
+  emdr: {
+    title: 'EMDR Therapy',
+    subtitle: 'Eye Movement Desensitization and Reprocessing',
+    intro: 'EMDR is a structured therapy that encourages the patient to briefly focus on the trauma memory while simultaneously experiencing bilateral stimulation, which is associated with a reduction in the vividness and emotion associated with the trauma memories.',
+    sections: [
+      { heading: 'What is EMDR?', content: 'Eye Movement Desensitization and Reprocessing (EMDR) is a psychotherapy treatment originally designed to alleviate the distress associated with traumatic memories. It enables people to heal from the symptoms and emotional distress that result from disturbing life experiences.' },
+      { heading: 'How EMDR works', content: 'During EMDR therapy, the therapist guides you through sets of bilateral stimulation — typically side-to-side eye movements — while you recall a traumatic event. This process helps your brain reprocess the memory so it becomes less distressing over time.' },
+      { heading: 'What EMDR can treat', content: 'EMDR has been extensively researched and proven effective for the treatment of PTSD, anxiety, depression, panic disorders, phobias, grief, and other trauma-related conditions. The World Health Organization recognizes EMDR as an effective treatment for trauma.' },
+      { heading: 'What to expect', content: 'A typical EMDR session lasts 60-90 minutes. You remain in control throughout the process and can stop at any time. Most people begin to experience benefits within a few sessions, though the total number of sessions varies depending on the complexity of the issue.' },
+    ],
+  },
 }
 
 export const ARTICLES = [
@@ -73,12 +75,12 @@ export const ARTICLES = [
     id: 'hypnotherapy-comedy',
     title: "Unveiling the Mind's Comedy Club: Healing with Hypnotherapy",
     excerpt: 'Plato once said, "If you want to heal the body, you must first heal the mind." Let\'s explore the wild world of healing through laughter and hypnotherapy.',
-    image: IMAGES.articleHypno,
+    illustration: 'hypnotherapy',
     content: `Plato once dropped the mic, saying, "If you want to heal the body, you must first heal the mind." So, let's hop on this thought train and explore the wild world of healing through laughter and hypnotherapy.
 
-Ever pondered why life feels like a sitcom with plot holes? Relationships, finances, health — it's like our personal drama series. Are we accidentally playing the role of our own villain, or are we the unsung heroes? Let's take a fun selfie with our mind's selfie camera and dive into the rabbit hole of self-discovery.
+Ever pondered why life feels like a sitcom with plot holes? Relationships, finances, health — it's like our personal drama series. Are we accidentally playing the role of our own villain, or are we the unsung heroes?
 
-Our mind, the undisputed headliner, has a three-ring circus going on — the conscious, the subconscious, and the unconscious. The conscious is the Sherlock Holmes of the mind, analyzing and questioning. The subconscious is the emotional DJ, spinning tunes of beliefs and experiences. Meanwhile, the unconscious is the backstage crew, blinking our eyes without us even thinking about it.
+Our mind, the undisputed headliner, has a three-ring circus going on — the conscious, the subconscious, and the unconscious. The conscious is the Sherlock Holmes of the mind, analyzing and questioning. The subconscious is the emotional DJ, spinning tunes of beliefs and experiences.
 
 Enter hypnotherapy, the mind's stand-up comedy show! Misunderstood as a sleep-inducing trance, it's actually a heightened state of awareness. It's like Netflix for your subconscious, accessing the root of your issues while you snack on mental popcorn.
 
@@ -90,7 +92,7 @@ In the grand finale, hypnotherapy takes a bow. Resurging in popularity, it's not
     id: 'abc-model',
     title: "Unveiling the Magic of Albert Ellis' ABC Model in CBT",
     excerpt: "Modern CBT traces its lineage back to Aaron Beck's Cognitive Therapy. Let's explore Albert Ellis's ABC Model — a treasure trove of wisdom in therapy.",
-    image: IMAGES.articleABC,
+    illustration: 'thinking',
     content: `Modern CBT traces its lineage back to Aaron Beck's Cognitive Therapy. Albert Ellis's Rational-Emotive Behavior Therapy (REBT) emerged as one of the roots of this transformative journey.
 
 The ABC Model is a magical formula where external events (A) don't play puppeteer with your emotions (C). Instead, it's the beliefs (B) that hold the strings.
@@ -109,7 +111,7 @@ As we wrap up, remember: you may not control the activating events, but you wiel
     id: 'limiting-beliefs',
     title: 'Unleashing Your True Potential: Overcoming Limiting Beliefs',
     excerpt: 'Each of us carries a unique set of beliefs, shaping our behaviors in ways we may not even realize. Hidden within us are limiting beliefs — subtle whispers that impact our decisions.',
-    image: IMAGES.articleBeliefs,
+    illustration: 'freedom',
     content: `Ever find yourself hesitating to reach for the stars? How much of our limitations are truly the result of our own belief systems?
 
 Limiting beliefs restrict the realm of possibilities for you. These are thoughts or mindsets that you accept as truths, unwittingly putting a leash on your potential.
@@ -128,4 +130,40 @@ Ownership Check: Are these beliefs truly yours, or have they been handed down by
 
 Get ready to unleash your true potential and rewrite the narrative of your extraordinary life!`,
   },
+
+
 ]
+
+export const PRIVACY_POLICY = {
+  lastUpdated: 'April 10, 2026',
+  sections: [
+    {
+      heading: 'Information we collect',
+      content: 'When you book a session through our website, we collect your full name, email address, phone number, and any notes you provide about your concerns. We also collect payment information through our secure payment processor, PayMongo.',
+    },
+    {
+      heading: 'How we use your information',
+      content: 'We use your personal information solely to schedule and manage your therapy sessions, send appointment confirmations and reminders via Google Calendar, process payments, and communicate with you about your bookings. We will never sell, rent, or share your personal information with third parties for marketing purposes.',
+    },
+    {
+      heading: 'Data storage and security',
+      content: 'Your data is stored securely using Supabase, a trusted cloud database platform with encryption at rest and in transit. Payment processing is handled by PayMongo, a PCI-DSS compliant payment gateway. We do not store your credit card or payment details on our servers.',
+    },
+    {
+      heading: 'Confidentiality',
+      content: 'As mental health professionals, we are bound by strict confidentiality standards. All information shared during consultations and therapy sessions is kept strictly confidential in accordance with professional ethics and Philippine data privacy laws (Republic Act No. 10173 — Data Privacy Act of 2012).',
+    },
+    {
+      heading: 'Your rights',
+      content: 'Under the Data Privacy Act of 2012, you have the right to access your personal data, correct any inaccuracies, request deletion of your data, object to processing, and lodge a complaint with the National Privacy Commission. To exercise any of these rights, contact us at ade@bestyouversion.com.',
+    },
+    {
+      heading: 'Cookies',
+      content: 'Our website uses minimal cookies necessary for the site to function properly. We do not use advertising or tracking cookies.',
+    },
+    {
+      heading: 'Contact',
+      content: 'If you have questions about this privacy policy, contact us at ade@bestyouversion.com or +63 919 374 6888.',
+    },
+  ],
+}
