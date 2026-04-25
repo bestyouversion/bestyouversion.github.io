@@ -77,3 +77,26 @@ button {
 ::-webkit-scrollbar-track { background: var(--bg-primary); }
 ::-webkit-scrollbar-thumb { background: rgba(233, 75, 124, 0.25); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(233, 75, 124, 0.5); }
+
+/* Inputs: 16px font prevents iOS Safari from auto-zooming on focus */
+input, textarea, select {
+  font-size: 16px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mobile: tighten section padding and remove horizontal overflow */
+@media (max-width: 640px) {
+  section {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+/* Prevent any element from causing horizontal scroll on small screens */
+html, body {
+  overflow-x: hidden;
+}

@@ -32,6 +32,7 @@ export default function BookingSection() {
   const [step, setStep] = useState(1)
   const [paying, setPaying] = useState(false)
   const [error, setError] = useState(null)
+  const [consent, setConsent] = useState(false)
 
   const days = getNext14Days()
 
@@ -271,6 +272,30 @@ export default function BookingSection() {
                 onBlur={e => e.target.style.borderColor = 'rgba(233,75,124,0.12)'} />
             </div>
 
+            <label style={{
+              display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 24,
+              cursor: 'pointer', userSelect: 'none',
+            }}>
+              <input
+                type="checkbox" checked={consent}
+                onChange={e => setConsent(e.target.checked)}
+                style={{
+                  marginTop: 3, width: 18, height: 18,
+                  accentColor: 'var(--accent)', cursor: 'pointer', flexShrink: 0,
+                }}
+              />
+              <span style={{
+                fontFamily: 'var(--font-body)', fontSize: 13, lineHeight: 1.6,
+                color: 'var(--text-muted)',
+              }}>
+                I consent to the collection and processing of my personal data for the purpose of
+                scheduling and managing this therapy session, in accordance with the{' '}
+                <a href="/privacy" target="_blank" rel="noopener noreferrer" style={{
+                  color: 'var(--accent)', textDecoration: 'underline',
+                }}>Data Privacy Notice</a> and the Data Privacy Act of 2012 (RA 10173).
+              </span>
+            </label>
+
             <div style={{ display: 'flex', gap: 12 }}>
               <button onClick={() => setStep(1)} style={{
                 flex: 1, padding: '16px',
@@ -279,14 +304,14 @@ export default function BookingSection() {
                 cursor: 'pointer', fontFamily: 'var(--font-body)', fontSize: 14, fontWeight: 500,
               }}>Back</button>
               <button
-                onClick={() => { if (name && email && phone) setStep(3) }}
+                onClick={() => { if (name && email && phone && consent) setStep(3) }}
                 style={{
                   flex: 2, padding: '16px',
-                  background: name && email && phone
+                  background: name && email && phone && consent
                     ? 'linear-gradient(135deg, var(--accent), var(--accent-dark))'
                     : 'rgba(233,75,124,0.2)',
                   color: 'var(--text-on-accent)', border: 'none', borderRadius: 'var(--radius-pill)',
-                  cursor: name && email && phone ? 'pointer' : 'not-allowed',
+                  cursor: name && email && phone && consent ? 'pointer' : 'not-allowed',
                   fontFamily: 'var(--font-body)', fontSize: 14, fontWeight: 600,
                   textTransform: 'uppercase', letterSpacing: '0.1em',
                 }}>Review & Pay</button>

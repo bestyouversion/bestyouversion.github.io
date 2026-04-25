@@ -23,7 +23,7 @@ export default function Hero({ onBook }) {
       }} />
 
       <div style={{
-        textAlign: 'center', maxWidth: 720, padding: '120px 32px 80px',
+        textAlign: 'center', maxWidth: 720, padding: '120px 24px 80px',
         opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)',
         transition: 'all 1.2s cubic-bezier(.4,0,.2,1)',
       }}>

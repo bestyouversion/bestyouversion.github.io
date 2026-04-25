@@ -135,11 +135,15 @@ Get ready to unleash your true potential and rewrite the narrative of your extra
 ]
 
 export const PRIVACY_POLICY = {
-  lastUpdated: 'April 10, 2026',
+  lastUpdated: 'April 25, 2026',
   sections: [
     {
       heading: 'Information we collect',
       content: 'When you book a session through our website, we collect your full name, email address, phone number, and any notes you provide about your concerns. We also collect payment information through our secure payment processor, PayMongo.',
+    },
+    {
+      heading: 'Legal basis for processing',
+      content: 'We process your personal data based on (a) your consent, given when you submit the booking form; (b) the necessity to fulfill our contractual obligations to provide therapy services; and (c) our legitimate interest in managing appointments and operating the practice. You may withdraw your consent at any time by contacting us.',
     },
     {
       heading: 'How we use your information',
@@ -147,23 +151,39 @@ export const PRIVACY_POLICY = {
     },
     {
       heading: 'Data storage and security',
-      content: 'Your data is stored securely using Supabase, a trusted cloud database platform with encryption at rest and in transit. Payment processing is handled by PayMongo, a PCI-DSS compliant payment gateway. We do not store your credit card or payment details on our servers.',
+      content: 'Your data is stored securely using Supabase, a trusted cloud database platform with encryption at rest and in transit. Payment processing is handled by PayMongo, a PCI-DSS compliant payment gateway. We do not store your credit card or payment details on our servers. Calendar events are managed through Google Calendar, which uses Google\'s enterprise-grade security.',
+    },
+    {
+      heading: 'Data retention',
+      content: 'We retain your personal data for as long as necessary to provide our services and to comply with our legal obligations. Booking and session records are kept for five (5) years after your last interaction, in accordance with professional record-keeping standards for mental health practitioners. After this period, your data is securely deleted or anonymized.',
     },
     {
       heading: 'Confidentiality',
-      content: 'As mental health professionals, we are bound by strict confidentiality standards. All information shared during consultations and therapy sessions is kept strictly confidential in accordance with professional ethics and Philippine data privacy laws (Republic Act No. 10173 — Data Privacy Act of 2012).',
+      content: 'As mental health professionals, we are bound by strict confidentiality standards. All information shared during consultations and therapy sessions is kept strictly confidential in accordance with the Philippine Mental Health Act (RA 11036), professional ethics, and the Data Privacy Act of 2012 (RA 10173). Disclosures are made only with your written consent or where required by law.',
     },
     {
-      heading: 'Your rights',
-      content: 'Under the Data Privacy Act of 2012, you have the right to access your personal data, correct any inaccuracies, request deletion of your data, object to processing, and lodge a complaint with the National Privacy Commission. To exercise any of these rights, contact us at ade@bestyouversion.com.',
+      heading: 'Your rights under the Data Privacy Act',
+      content: 'Under the Data Privacy Act of 2012, you have the right to: be informed of data processing; access your personal data; correct inaccuracies; object to processing; request deletion or blocking of your data; data portability; and to be indemnified for damages from inaccurate or unauthorized use of your data. To exercise any of these rights, contact our Data Protection Officer (see below).',
+    },
+    {
+      heading: 'Data Protection Officer',
+      content: 'Our designated Data Protection Officer is Ademar Serrano Cutang, Licensed Clinical Psychologist. You may reach him at ade@bestyouversion.com or +63 919 374 6888 for any questions, concerns, or requests regarding your personal data.',
+    },
+    {
+      heading: 'Filing a complaint',
+      content: 'If you believe your data privacy rights have been violated, you may file a complaint with the National Privacy Commission (NPC). Contact: complaints@privacy.gov.ph · 5th Floor Delegation Building, PICC Complex, Pasay City, Philippines · https://www.privacy.gov.ph',
     },
     {
       heading: 'Cookies',
-      content: 'Our website uses minimal cookies necessary for the site to function properly. We do not use advertising or tracking cookies.',
+      content: 'Our website uses only essential cookies necessary for core functionality (e.g., maintaining your session). We do not use advertising, analytics, or third-party tracking cookies.',
     },
     {
-      heading: 'Contact',
-      content: 'If you have questions about this privacy policy, contact us at ade@bestyouversion.com or +63 919 374 6888.',
+      heading: 'Changes to this notice',
+      content: 'We may update this Privacy Notice from time to time to reflect changes in our practices or legal requirements. The "Last updated" date at the top will be revised whenever changes are made. We encourage you to review this notice periodically.',
+    },
+    {
+      heading: 'Contact us',
+      content: 'For any questions about this Privacy Notice or how we handle your personal data, please contact us at ade@bestyouversion.com or +63 919 374 6888.',
     },
   ],
 }
