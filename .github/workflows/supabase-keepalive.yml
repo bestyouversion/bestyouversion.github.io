@@ -1,0 +1,43 @@
+# Pings Supabase daily to prevent the free-tier project from auto-pausing
+# after 7 days of inactivity. Free GitHub Actions minutes — cron runs in the cloud.
+
+name: Supabase Keep-Alive
+
+on:
+  schedule:
+    # Every day at 02:00 UTC (10:00 AM Manila time) — well within the 7-day window
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase REST API
+        env:
+          SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+        run: |
+          if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_ANON_KEY" ]; then
+            echo "ERROR: SUPABASE_URL or SUPABASE_ANON_KEY secret is missing."
+            exit 1
+          fi
+
+          # Lightweight query: count(*) on bookings — counts as DB activity
+          response=$(curl -s -o /tmp/body -w "%{http_code}" \
+            -H "apikey: $SUPABASE_ANON_KEY" \
+            -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
+            -H "Prefer: count=exact" \
+            "$SUPABASE_URL/rest/v1/bookings?select=id&limit=1")
+
+          echo "HTTP status: $response"
+          echo "Response body:"
+          cat /tmp/body
+          echo
+
+          if [ "$response" -lt 200 ] || [ "$response" -ge 300 ]; then
+            echo "ERROR: Ping failed with status $response"
+            exit 1
+          fi
+
+          echo "✅ Supabase pinged successfully — project stays active."
