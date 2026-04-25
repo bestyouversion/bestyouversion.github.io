@@ -24,7 +24,8 @@ export function PaymentSuccess() {
           color: 'var(--text-muted)', margin: '0 0 32px',
         }}>
           Your payment was successful and your session has been scheduled.
-          You'll receive a confirmation email with the Google Calendar invite shortly.
+          You'll receive a confirmation email shortly with a Google Calendar invite
+          and a Google Meet link for your session.
         </p>
         <Link to="/" style={{
           display: 'inline-block', padding: '14px 32px',

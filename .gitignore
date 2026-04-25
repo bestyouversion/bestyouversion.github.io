@@ -5,3 +5,11 @@ dist
 .DS_Store
 *.log
 .claude/
+
+# Google Cloud service account key — NEVER commit
+bestyouversion-calendar-*.json
+*-service-account*.json
+secrets/
+
+# Supabase CLI cache
+supabase/.temp/

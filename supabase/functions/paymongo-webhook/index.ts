@@ -27,18 +27,22 @@ const corsHeaders = {
 
 // ─── Google Calendar Helper ───────────────────────────────────
 
-async function getGoogleAccessToken(serviceAccountJson: string): Promise<string> {
+async function getGoogleAccessToken(serviceAccountJson: string, impersonateUser?: string): Promise<string> {
   const sa = JSON.parse(serviceAccountJson)
 
   // Create JWT
   const header = { alg: 'RS256', typ: 'JWT' }
   const now = Math.floor(Date.now() / 1000)
-  const claim = {
+  const claim: Record<string, any> = {
     iss: sa.client_email,
     scope: 'https://www.googleapis.com/auth/calendar',
     aud: 'https://oauth2.googleapis.com/token',
     exp: now + 3600,
     iat: now,
+  }
+  // Domain-Wide Delegation: act as a Workspace user (required to invite attendees)
+  if (impersonateUser) {
+    claim.sub = impersonateUser
   }
 
   const encoder = new TextEncoder()
@@ -102,7 +106,9 @@ async function createCalendarEvent(booking: any): Promise<string | null> {
   }
 
   try {
-    const accessToken = await getGoogleAccessToken(serviceAccountJson)
+    // Impersonate the calendar owner via Domain-Wide Delegation
+    // so the service account can invite attendees on Ade's behalf
+    const accessToken = await getGoogleAccessToken(serviceAccountJson, calendarId)
 
     // Build event datetime
     const startDateTime = `${booking.booking_date}T${booking.time_slot}:00`
@@ -111,7 +117,7 @@ async function createCalendarEvent(booking: any): Promise<string | null> {
     const endDateTime = `${booking.booking_date}T${String(endHours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:00`
 
     const event = {
-      summary: `Session: ${booking.client_name}`,
+      summary: `Best You Version Session: ${booking.client_name}`,
       description: [
         `Client: ${booking.client_name}`,
         `Email: ${booking.client_email}`,
@@ -119,6 +125,8 @@ async function createCalendarEvent(booking: any): Promise<string | null> {
         booking.notes ? `Notes: ${booking.notes}` : '',
         `Payment: Confirmed via PayMongo`,
         `Booking ID: ${booking.id}`,
+        '',
+        'Join the session via the Google Meet link in this invitation.',
       ].filter(Boolean).join('\n'),
       start: {
         dateTime: startDateTime,
@@ -131,6 +139,13 @@ async function createCalendarEvent(booking: any): Promise<string | null> {
       attendees: [
         { email: booking.client_email, displayName: booking.client_name },
       ],
+      // Auto-create a Google Meet link for the event
+      conferenceData: {
+        createRequest: {
+          requestId: `bookmeet-${booking.id}`,
+          conferenceSolutionKey: { type: 'hangoutsMeet' },
+        },
+      },
       reminders: {
         useDefault: false,
         overrides: [
@@ -141,7 +156,7 @@ async function createCalendarEvent(booking: any): Promise<string | null> {
     }
 
     const calRes = await fetch(
-      `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events?sendUpdates=all`,
+      `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events?sendUpdates=all&conferenceDataVersion=1`,
       {
         method: 'POST',
         headers: {

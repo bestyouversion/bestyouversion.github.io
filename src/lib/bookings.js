@@ -1,15 +1,24 @@
 import { supabase, isSupabaseConfigured } from './supabase'
 
-const ALL_SLOTS = [
-  '09:00', '10:00', '11:00',
-  '13:00', '14:00', '15:00', '16:00',
-]
+// Weekday hours: Mon-Fri 10am-1pm → 1-hour slots starting at 10/11/12
+const WEEKDAY_SLOTS = ['10:00', '11:00', '12:00']
+// Weekend hours: Sat-Sun 9pm-11pm → 1-hour slots starting at 21/22
+const WEEKEND_SLOTS = ['21:00', '22:00']
+
+export function getSlotsForDate(date) {
+  // date can be a Date or a 'yyyy-MM-dd' string
+  const d = typeof date === 'string' ? new Date(date + 'T00:00:00') : date
+  const day = d.getDay() // 0=Sun, 6=Sat
+  return (day === 0 || day === 6) ? WEEKEND_SLOTS : WEEKDAY_SLOTS
+}
 
 /**
- * Fetch available time slots for a given date.
+ * Fetch available time slots for a given date (filters out already-booked slots).
  */
 export async function getAvailableSlots(date) {
-  if (!isSupabaseConfigured) return ALL_SLOTS
+  const slotsForDay = getSlotsForDate(date)
+
+  if (!isSupabaseConfigured) return slotsForDay
 
   const { data: booked, error } = await supabase
     .from('bookings')
@@ -20,7 +29,7 @@ export async function getAvailableSlots(date) {
   if (error) throw error
 
   const bookedTimes = (booked || []).map(b => b.time_slot)
-  return ALL_SLOTS.filter(s => !bookedTimes.includes(s))
+  return slotsForDay.filter(s => !bookedTimes.includes(s))
 }
 
 /**

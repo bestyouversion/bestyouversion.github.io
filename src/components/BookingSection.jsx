@@ -1,24 +1,21 @@
 import { useState, useEffect } from 'react'
-import { format, addDays, isSunday } from 'date-fns'
+import { format, addDays } from 'date-fns'
 import { getAvailableSlots, createBooking } from '../lib/bookings'
 import { createCheckoutSession } from '../lib/paymongo'
 
 const TIME_LABELS = {
-  '09:00': '9:00 AM',
   '10:00': '10:00 AM',
   '11:00': '11:00 AM',
-  '13:00': '1:00 PM',
-  '14:00': '2:00 PM',
-  '15:00': '3:00 PM',
-  '16:00': '4:00 PM',
+  '12:00': '12:00 NN',
+  '21:00': '9:00 PM',
+  '22:00': '10:00 PM',
 }
 
 function getNext14Days() {
   const days = []
   const now = new Date()
   for (let i = 1; i <= 14; i++) {
-    const d = addDays(now, i)
-    if (!isSunday(d)) days.push(d)
+    days.push(addDays(now, i))
   }
   return days
 }
@@ -148,6 +145,25 @@ export default function BookingSection() {
         {/* Step 1: Date & Time */}
         {step === 1 && (
           <div>
+            <div style={{
+              padding: '14px 18px', marginBottom: 24,
+              background: 'var(--bg-card)', border: '1px solid var(--accent-border)',
+              borderRadius: 'var(--radius-md)', boxShadow: 'var(--shadow-card)',
+            }}>
+              <div style={{
+                fontFamily: 'var(--font-body)', fontSize: 11, fontWeight: 500,
+                textTransform: 'uppercase', letterSpacing: '0.15em',
+                color: 'var(--accent)', marginBottom: 6,
+              }}>Available hours</div>
+              <div style={{
+                fontFamily: 'var(--font-body)', fontSize: 13, lineHeight: 1.6,
+                color: 'var(--text-secondary)',
+              }}>
+                <strong>Mon – Fri:</strong> 10:00 AM – 1:00 PM<br />
+                <strong>Sat – Sun:</strong> 9:00 PM – 11:00 PM
+              </div>
+            </div>
+
             <div style={{
               fontFamily: 'var(--font-body)', fontSize: 14, fontWeight: 500,
               color: 'var(--text-secondary)', marginBottom: 20,
