@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 const QUICK_LINKS = [
   { label: 'About', href: '/#about' },
   { label: 'Services', href: '/#services' },
+  { label: 'Assessments', href: '/#assessments' },
   { label: 'Articles', href: '/articles' },
   { label: 'Book a Session', href: '/#book' },
   { label: 'Contact', href: '/#contact' },

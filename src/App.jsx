@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
 import Services from './components/Services'
+import Assessments from './components/Assessments'
 import BookingSection from './components/BookingSection'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -26,6 +27,7 @@ function HomePage() {
       <Hero onBook={scrollToBook} />
       <About />
       <Services />
+      <Assessments />
       <BookingSection />
       <Contact />
       <Footer />
