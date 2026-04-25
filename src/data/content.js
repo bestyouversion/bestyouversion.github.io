@@ -12,6 +12,7 @@ export const ADE_BIO = {
   intro: 'With a foundation built on the pursuit of knowledge and a passion for empowering individuals, I am Ademar Cutang, an esteemed professional with a wealth of experience spanning decades in the realm of personal development and transformation.',
   credentials: [
     'Licensed Clinical Psychologist',
+    'Doctor in Professional Counseling (On-Going)',
     'Certified Master NLP Practitioner accredited by IGGP UK',
     'Certified Hypnotherapist',
     'Certified Cognitive Behavioral Therapist',
