@@ -13,7 +13,9 @@ export function getSlotsForDate(date) {
 }
 
 /**
- * Fetch available time slots for a given date (filters out already-booked slots).
+ * Fetch available time slots for a given date.
+ * Only confirmed (paid) bookings block a slot — pending_payment bookings
+ * stay available so abandoned checkouts don't permanently hold slots.
  */
 export async function getAvailableSlots(date) {
   const slotsForDay = getSlotsForDate(date)
@@ -24,7 +26,7 @@ export async function getAvailableSlots(date) {
     .from('bookings')
     .select('time_slot')
     .eq('booking_date', date)
-    .in('status', ['confirmed', 'pending_payment'])
+    .eq('status', 'confirmed')
 
   if (error) throw error
 
