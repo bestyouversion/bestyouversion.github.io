@@ -49,19 +49,8 @@ export default function Services() {
           })}
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24, marginTop: 48, alignItems: 'center' }}>
-          <div style={{ textAlign: 'center', padding: '40px 32px', background: 'var(--bg-card)', border: '1px solid var(--accent-border)', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-card)' }}>
-            <div style={{ fontFamily: 'var(--font-display)', fontSize: 28, fontWeight: 500, color: 'var(--text-secondary)', marginBottom: 8 }}>Consultation</div>
-            <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: 'var(--text-muted)', marginBottom: 4 }}>1 Hour Session</div>
-            <div style={{ fontFamily: 'var(--font-display)', fontSize: 36, fontWeight: 600, color: 'var(--accent)', marginBottom: 4 }}>₱1,500</div>
-            <div style={{ fontFamily: 'var(--font-body)', fontSize: 12, color: 'var(--text-faint)', marginBottom: 16 }}>per session · online or in-person</div>
-            <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, lineHeight: 1.6, color: 'var(--text-muted)', margin: 0 }}>
-              Achieve profound relaxation and heightened mental clarity through our expertly crafted NLP, CBT, EMDR, and hypnotherapy consultation services.
-            </p>
-          </div>
-          <div style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', border: '1px solid var(--accent-border)' }}>
-            <ConsultationIllustration />
-          </div>
+        <div style={{ marginTop: 48, borderRadius: 'var(--radius-lg)', overflow: 'hidden', border: '1px solid var(--accent-border)' }}>
+          <ConsultationIllustration />
         </div>
       </div>
     </section>
