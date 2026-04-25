@@ -58,10 +58,12 @@ serve(async (req) => {
               },
             ],
             payment_method_types: [
+              'qrph',
               'gcash',
               'grab_pay',
               'paymaya',
               'card',
+              'billease',
               'dob',
               'dob_ubp',
               'brankas_bdo',
