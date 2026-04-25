@@ -113,7 +113,7 @@ export default function AdminDashboard() {
     }}>
       {/* Top bar */}
       <div style={{
-        borderBottom: '1px solid rgba(196,149,106,0.1)',
+        borderBottom: '1px solid rgba(233,75,124,0.1)',
         padding: '0 32px', height: 64,
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       }}>
@@ -123,7 +123,7 @@ export default function AdminDashboard() {
             background: 'linear-gradient(135deg, var(--accent), var(--accent-dark))',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 15,
-            color: 'var(--text-primary)',
+            color: 'var(--text-on-accent)',
           }}>B</span>
           <span style={{
             fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 18,
@@ -131,7 +131,7 @@ export default function AdminDashboard() {
           }}>Dashboard</span>
         </div>
         <button onClick={signOut} style={{
-          background: 'none', border: '1px solid rgba(196,149,106,0.2)',
+          background: 'none', border: '1px solid rgba(233,75,124,0.2)',
           borderRadius: 'var(--radius-sm)', padding: '8px 16px', cursor: 'pointer',
           fontFamily: 'var(--font-body)', fontSize: 13, color: 'var(--text-muted)',
         }}>Sign Out</button>
@@ -152,7 +152,8 @@ export default function AdminDashboard() {
             <div key={s.label} style={{
               padding: '24px', borderRadius: 'var(--radius-lg)',
               background: 'var(--bg-card)',
-              border: '1px solid rgba(196,149,106,0.06)',
+              border: '1px solid var(--accent-border)',
+              boxShadow: 'var(--shadow-card)',
             }}>
               <div style={{
                 fontFamily: 'var(--font-body)', fontSize: 12, color: 'var(--text-faint)',
@@ -177,8 +178,8 @@ export default function AdminDashboard() {
                 padding: '8px 16px', borderRadius: 20, cursor: 'pointer',
                 background: filter === f ? 'var(--accent-light)' : 'transparent',
                 border: filter === f
-                  ? '1px solid rgba(196,149,106,0.3)'
-                  : '1px solid rgba(196,149,106,0.08)',
+                  ? '1px solid rgba(233,75,124,0.3)'
+                  : '1px solid rgba(233,75,124,0.08)',
                 color: filter === f ? 'var(--accent)' : 'var(--text-muted)',
                 fontFamily: 'var(--font-body)', fontSize: 13,
                 textTransform: 'capitalize',
@@ -188,7 +189,7 @@ export default function AdminDashboard() {
           <button onClick={fetchBookings} style={{
             padding: '8px 16px', borderRadius: 20, cursor: 'pointer',
             background: 'transparent',
-            border: '1px solid rgba(196,149,106,0.15)',
+            border: '1px solid rgba(233,75,124,0.15)',
             color: 'var(--text-muted)',
             fontFamily: 'var(--font-body)', fontSize: 13,
           }}>Refresh</button>
@@ -202,7 +203,7 @@ export default function AdminDashboard() {
         ) : bookings.length === 0 ? (
           <div style={{
             textAlign: 'center', padding: 60, color: 'var(--text-faint)',
-            border: '1px dashed rgba(196,149,106,0.15)', borderRadius: 'var(--radius-lg)',
+            border: '1px dashed rgba(233,75,124,0.15)', borderRadius: 'var(--radius-lg)',
           }}>No bookings found</div>
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -213,9 +214,10 @@ export default function AdminDashboard() {
                 padding: '20px 24px', borderRadius: 'var(--radius-lg)',
                 background: 'var(--bg-card)',
                 border: selectedBooking?.id === booking.id
-                  ? '1px solid rgba(196,149,106,0.3)'
-                  : '1px solid rgba(196,149,106,0.06)',
+                  ? '1px solid rgba(233,75,124,0.3)'
+                  : '1px solid var(--accent-border)',
                 cursor: 'pointer', transition: 'all 0.3s',
+                boxShadow: 'var(--shadow-card)',
               }}>
                 {/* Row summary */}
                 <div style={{
@@ -249,7 +251,7 @@ export default function AdminDashboard() {
                 {selectedBooking?.id === booking.id && (
                   <div style={{
                     marginTop: 20, paddingTop: 20,
-                    borderTop: '1px solid rgba(196,149,106,0.08)',
+                    borderTop: '1px solid rgba(233,75,124,0.08)',
                   }}>
                     <div style={{
                       display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',

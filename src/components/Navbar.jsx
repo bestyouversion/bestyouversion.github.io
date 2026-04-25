@@ -7,6 +7,7 @@ const NAV_LINKS = [
   { id: 'services', path: '/#services', label: 'Services' },
   { id: 'articles', path: '/articles', label: 'Articles', isPage: true },
   { id: 'book', path: '/#book', label: 'Book' },
+  { id: 'contact', path: '/#contact', label: 'Contact' },
 ]
 
 export default function Navbar() {
@@ -47,10 +48,10 @@ export default function Navbar() {
   return (
     <nav style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
-      background: scrolled ? 'rgba(15,14,12,0.92)' : 'transparent',
+      background: scrolled ? 'rgba(255,248,250,0.92)' : 'transparent',
       backdropFilter: scrolled ? 'blur(16px)' : 'none',
       transition: 'all 0.5s cubic-bezier(.4,0,.2,1)',
-      borderBottom: scrolled ? '1px solid rgba(210,190,160,0.1)' : '1px solid transparent',
+      borderBottom: scrolled ? '1px solid rgba(93,43,61,0.08)' : '1px solid transparent',
     }}>
       <div style={{
         maxWidth: 1200, margin: '0 auto', padding: '0 32px',
@@ -63,11 +64,12 @@ export default function Navbar() {
           onClick={() => handleNav(NAV_LINKS[0])}
         >
           <img src={`${import.meta.env.BASE_URL}images/logo.png`} alt="Best You Version" style={{
-            width: 36, height: 36, borderRadius: '50%', objectFit: 'cover',
+            width: 44, height: 44, borderRadius: '50%', objectFit: 'cover',
+            boxShadow: '0 2px 12px rgba(233,75,124,0.18)',
           }} />
           <span style={{
             fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: 20,
-            color: 'var(--text-secondary)', letterSpacing: '0.02em',
+            color: 'var(--accent-plum)', letterSpacing: '0.02em',
           }}>Best You Version</span>
         </div>
 
@@ -102,8 +104,9 @@ export default function Navbar() {
       {/* Mobile menu */}
       {mobileOpen && (
         <div style={{
-          background: 'rgba(15,14,12,0.97)', padding: '16px 32px 24px',
+          background: 'rgba(255,248,250,0.97)', padding: '16px 32px 24px',
           display: 'flex', flexDirection: 'column', gap: 16,
+          borderTop: '1px solid rgba(93,43,61,0.08)',
         }}>
           {NAV_LINKS.map(link => (
             <button key={link.id} onClick={() => handleNav(link)} style={{

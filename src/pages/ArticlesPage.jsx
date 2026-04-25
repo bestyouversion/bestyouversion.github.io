@@ -28,11 +28,12 @@ export function ArticlesPage() {
           {ARTICLES.map(article => (
             <Link to={`/articles/${article.id}`} key={article.id} style={{
               textDecoration: 'none', borderRadius: 'var(--radius-lg)', overflow: 'hidden',
-              background: 'var(--bg-card)', border: '1px solid rgba(196,149,106,0.08)',
+              background: 'var(--bg-card)', border: '1px solid var(--accent-border)',
               transition: 'all 0.4s cubic-bezier(.4,0,.2,1)',
+              boxShadow: 'var(--shadow-card)', display: 'block',
             }}
-            onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(196,149,106,0.25)'; e.currentTarget.style.transform = 'translateY(-4px)' }}
-            onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(196,149,106,0.08)'; e.currentTarget.style.transform = 'translateY(0)' }}>
+            onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(233,75,124,0.3)'; e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.boxShadow = 'var(--shadow-card-hover)' }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--accent-border)'; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'var(--shadow-card)' }}>
               <ArticleIllustration type={article.illustration} />
               <div style={{ padding: '24px' }}>
                 <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 20, fontWeight: 600, color: 'var(--text-secondary)', margin: '0 0 12px', lineHeight: 1.3 }}>{article.title}</h2>
@@ -78,10 +79,10 @@ export function ArticlePage() {
           <p key={i} style={{ fontFamily: 'var(--font-body)', fontSize: 16, lineHeight: 1.9, color: 'var(--text-muted)', margin: '0 0 24px' }}>{para}</p>
         ))}
 
-        <div style={{ marginTop: 48, padding: '40px 32px', textAlign: 'center', background: 'rgba(196,149,106,0.04)', border: '1px solid var(--accent-border)', borderRadius: 'var(--radius-xl)' }}>
+        <div style={{ marginTop: 48, padding: '40px 32px', textAlign: 'center', background: 'var(--bg-card)', border: '1px solid var(--accent-border)', borderRadius: 'var(--radius-xl)', boxShadow: 'var(--shadow-card)' }}>
           <div style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 500, color: 'var(--text-secondary)', marginBottom: 12 }}>Want to explore this further?</div>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: 'var(--text-muted)', marginBottom: 20, maxWidth: 400, margin: '0 auto 20px' }}>Book a session with Ade and start your transformative journey.</p>
-          <a href="/#book" style={{ display: 'inline-block', padding: '14px 36px', background: 'linear-gradient(135deg, var(--accent), var(--accent-dark))', color: 'var(--bg-primary)', borderRadius: 'var(--radius-pill)', fontFamily: 'var(--font-body)', fontSize: 14, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', textDecoration: 'none' }}>Book a Session</a>
+          <a href="/#book" style={{ display: 'inline-block', padding: '14px 36px', background: 'linear-gradient(135deg, var(--accent), var(--accent-dark))', color: 'var(--text-on-accent)', borderRadius: 'var(--radius-pill)', fontFamily: 'var(--font-body)', fontSize: 14, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', textDecoration: 'none' }}>Book a Session</a>
         </div>
       </article>
       <Footer />

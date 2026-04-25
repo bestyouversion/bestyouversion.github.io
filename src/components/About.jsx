@@ -23,11 +23,11 @@ export default function About() {
           </div>
         </div>
 
-        <div style={{ padding: 32, background: 'rgba(196,149,106,0.04)', border: '1px solid var(--accent-border)', borderRadius: 'var(--radius-xl)', marginBottom: 48 }}>
+        <div style={{ padding: 32, background: 'var(--bg-card)', border: '1px solid var(--accent-border)', borderRadius: 'var(--radius-xl)', marginBottom: 48, boxShadow: 'var(--shadow-card)' }}>
           <div style={{ fontFamily: 'var(--font-body)', fontSize: 12, fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.15em', color: 'var(--accent)', marginBottom: 20 }}>Credentials & Certifications</div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 12 }}>
             {ADE_BIO.credentials.map((c, i) => (
-              <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '12px 16px', background: 'rgba(196,149,106,0.03)', borderRadius: 'var(--radius-sm)' }}>
+              <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '12px 16px', background: '#FFF5F8', borderRadius: 'var(--radius-sm)' }}>
                 <span style={{ color: 'var(--accent)', fontSize: 14, marginTop: 2, flexShrink: 0 }}>&#10022;</span>
                 <span style={{ fontFamily: 'var(--font-body)', fontSize: 14, lineHeight: 1.5, color: 'var(--text-secondary)' }}>{c}</span>
               </div>

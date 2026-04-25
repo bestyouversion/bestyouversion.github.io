@@ -29,7 +29,7 @@ export function PaymentSuccess() {
         <Link to="/" style={{
           display: 'inline-block', padding: '14px 32px',
           background: 'linear-gradient(135deg, var(--accent), var(--accent-dark))',
-          color: 'var(--bg-primary)', borderRadius: 'var(--radius-pill)',
+          color: 'var(--text-on-accent)', borderRadius: 'var(--radius-pill)',
           fontFamily: 'var(--font-body)', fontSize: 14, fontWeight: 600,
           textTransform: 'uppercase', letterSpacing: '0.1em',
           textDecoration: 'none',
@@ -67,7 +67,7 @@ export function PaymentFailed() {
           <Link to="/#book" style={{
             display: 'inline-block', padding: '14px 32px',
             background: 'linear-gradient(135deg, var(--accent), var(--accent-dark))',
-            color: 'var(--bg-primary)', borderRadius: 'var(--radius-pill)',
+            color: 'var(--text-on-accent)', borderRadius: 'var(--radius-pill)',
             fontFamily: 'var(--font-body)', fontSize: 14, fontWeight: 600,
             textTransform: 'uppercase', letterSpacing: '0.1em',
             textDecoration: 'none',

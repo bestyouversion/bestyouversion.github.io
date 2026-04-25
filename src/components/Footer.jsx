@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer style={{
       background: 'var(--bg-tertiary)', padding: '60px 32px 40px',
-      borderTop: '1px solid rgba(196,149,106,0.06)',
+      borderTop: '1px solid rgba(255,255,255,0.08)',
     }}>
       <div style={{
         maxWidth: 960, margin: '0 auto',
@@ -13,11 +13,11 @@ export default function Footer() {
         <div>
           <div style={{
             fontFamily: 'var(--font-display)', fontSize: 20, fontWeight: 600,
-            color: 'var(--text-secondary)', marginBottom: 12,
+            color: '#FFFFFF', marginBottom: 12,
           }}>Best You Version</div>
           <div style={{
             fontFamily: 'var(--font-body)', fontSize: 13, lineHeight: 1.8,
-            color: 'var(--text-faint)',
+            color: 'rgba(255,255,255,0.7)',
           }}>
             ade@bestyouversion.com<br />
             +63 919 374 6888<br />
@@ -27,11 +27,11 @@ export default function Footer() {
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'flex-end', gap: 8 }}>
           <Link to="/privacy" style={{
             fontFamily: 'var(--font-body)', fontSize: 12,
-            color: 'var(--text-faint)', textDecoration: 'none',
+            color: 'rgba(255,255,255,0.7)', textDecoration: 'none',
           }}>Data Privacy Notice</Link>
           <div style={{
             fontFamily: 'var(--font-body)', fontSize: 12,
-            color: 'var(--text-ghost)',
+            color: 'rgba(255,255,255,0.45)',
           }}>
             © {new Date().getFullYear()} Best You Version. All rights reserved.
           </div>

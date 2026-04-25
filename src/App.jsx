@@ -5,6 +5,7 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Services from './components/Services'
 import BookingSection from './components/BookingSection'
+import Contact from './components/Contact'
 import Footer from './components/Footer'
 import AdminLogin from './pages/AdminLogin'
 import AdminDashboard from './pages/AdminDashboard'
@@ -25,6 +26,7 @@ function HomePage() {
       <About />
       <Services />
       <BookingSection />
+      <Contact />
       <Footer />
     </>
   )

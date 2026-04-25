@@ -63,9 +63,10 @@ export default function TherapyPage() {
         {/* CTA */}
         <div style={{
           marginTop: 40, padding: '40px 32px', textAlign: 'center',
-          background: 'rgba(196,149,106,0.04)',
+          background: 'var(--bg-card)',
           border: '1px solid var(--accent-border)',
           borderRadius: 'var(--radius-xl)',
+          boxShadow: 'var(--shadow-card)',
         }}>
           <div style={{
             fontFamily: 'var(--font-display)', fontSize: 24, fontWeight: 500,
@@ -78,7 +79,7 @@ export default function TherapyPage() {
           <a href="/#book" style={{
             display: 'inline-block', padding: '14px 36px',
             background: 'linear-gradient(135deg, var(--accent), var(--accent-dark))',
-            color: 'var(--bg-primary)', borderRadius: 'var(--radius-pill)',
+            color: 'var(--text-on-accent)', borderRadius: 'var(--radius-pill)',
             fontFamily: 'var(--font-body)', fontSize: 14, fontWeight: 600,
             textTransform: 'uppercase', letterSpacing: '0.1em', textDecoration: 'none',
           }}>Book a Session</a>

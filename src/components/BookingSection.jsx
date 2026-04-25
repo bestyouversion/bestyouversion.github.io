@@ -100,7 +100,7 @@ export default function BookingSection() {
   const inputStyle = {
     width: '100%', padding: '14px 16px',
     background: 'var(--bg-card)',
-    border: '1px solid rgba(196,149,106,0.12)',
+    border: '1px solid rgba(233,75,124,0.12)',
     borderRadius: 'var(--radius-md)', color: 'var(--text-secondary)',
     fontFamily: 'var(--font-body)', fontSize: 14,
     outline: 'none', transition: 'border-color 0.3s',
@@ -131,7 +131,7 @@ export default function BookingSection() {
           {[1, 2, 3].map(s => (
             <div key={s} style={{
               flex: 1, height: 3, borderRadius: 2,
-              background: s <= step ? 'var(--accent)' : 'rgba(196,149,106,0.15)',
+              background: s <= step ? 'var(--accent)' : 'rgba(233,75,124,0.15)',
               transition: 'background 0.4s',
             }} />
           ))}
@@ -164,8 +164,8 @@ export default function BookingSection() {
                     padding: '14px 8px', borderRadius: 'var(--radius-md)', cursor: 'pointer',
                     background: isSelected ? 'var(--accent-light)' : 'var(--bg-card)',
                     border: isSelected
-                      ? '1px solid rgba(196,149,106,0.4)'
-                      : '1px solid rgba(196,149,106,0.08)',
+                      ? '1px solid rgba(233,75,124,0.4)'
+                      : '1px solid rgba(233,75,124,0.08)',
                     color: 'var(--text-secondary)',
                     fontFamily: 'var(--font-body)', fontSize: 13,
                     transition: 'all 0.3s',
@@ -201,8 +201,8 @@ export default function BookingSection() {
                           padding: '12px 8px', borderRadius: 'var(--radius-md)', cursor: 'pointer',
                           background: isSelected ? 'var(--accent-light)' : 'var(--bg-card)',
                           border: isSelected
-                            ? '1px solid rgba(196,149,106,0.4)'
-                            : '1px solid rgba(196,149,106,0.08)',
+                            ? '1px solid rgba(233,75,124,0.4)'
+                            : '1px solid rgba(233,75,124,0.08)',
                           color: 'var(--text-secondary)',
                           fontFamily: 'var(--font-body)', fontSize: 13,
                           transition: 'all 0.3s',
@@ -218,7 +218,7 @@ export default function BookingSection() {
               <button onClick={() => setStep(2)} style={{
                 width: '100%', padding: '16px',
                 background: 'linear-gradient(135deg, var(--accent), var(--accent-dark))',
-                color: 'var(--bg-primary)', border: 'none', borderRadius: 'var(--radius-pill)',
+                color: 'var(--text-on-accent)', border: 'none', borderRadius: 'var(--radius-pill)',
                 cursor: 'pointer',
                 fontFamily: 'var(--font-body)', fontSize: 14, fontWeight: 600,
                 textTransform: 'uppercase', letterSpacing: '0.1em',
@@ -239,20 +239,20 @@ export default function BookingSection() {
               <input placeholder="Full name" value={name}
                 onChange={e => setName(e.target.value)} style={inputStyle}
                 onFocus={e => e.target.style.borderColor = 'var(--accent-border-hover)'}
-                onBlur={e => e.target.style.borderColor = 'rgba(196,149,106,0.12)'} />
+                onBlur={e => e.target.style.borderColor = 'rgba(233,75,124,0.12)'} />
               <input placeholder="Email address" type="email" value={email}
                 onChange={e => setEmail(e.target.value)} style={inputStyle}
                 onFocus={e => e.target.style.borderColor = 'var(--accent-border-hover)'}
-                onBlur={e => e.target.style.borderColor = 'rgba(196,149,106,0.12)'} />
+                onBlur={e => e.target.style.borderColor = 'rgba(233,75,124,0.12)'} />
               <input placeholder="Phone / Viber / WhatsApp" value={phone}
                 onChange={e => setPhone(e.target.value)} style={inputStyle}
                 onFocus={e => e.target.style.borderColor = 'var(--accent-border-hover)'}
-                onBlur={e => e.target.style.borderColor = 'rgba(196,149,106,0.12)'} />
+                onBlur={e => e.target.style.borderColor = 'rgba(233,75,124,0.12)'} />
               <textarea placeholder="Notes or concerns (optional)" value={notes}
                 onChange={e => setNotes(e.target.value)} rows={3}
                 style={{ ...inputStyle, resize: 'vertical' }}
                 onFocus={e => e.target.style.borderColor = 'var(--accent-border-hover)'}
-                onBlur={e => e.target.style.borderColor = 'rgba(196,149,106,0.12)'} />
+                onBlur={e => e.target.style.borderColor = 'rgba(233,75,124,0.12)'} />
             </div>
 
             <div style={{ display: 'flex', gap: 12 }}>
@@ -268,8 +268,8 @@ export default function BookingSection() {
                   flex: 2, padding: '16px',
                   background: name && email && phone
                     ? 'linear-gradient(135deg, var(--accent), var(--accent-dark))'
-                    : 'rgba(196,149,106,0.2)',
-                  color: 'var(--bg-primary)', border: 'none', borderRadius: 'var(--radius-pill)',
+                    : 'rgba(233,75,124,0.2)',
+                  color: 'var(--text-on-accent)', border: 'none', borderRadius: 'var(--radius-pill)',
                   cursor: name && email && phone ? 'pointer' : 'not-allowed',
                   fontFamily: 'var(--font-body)', fontSize: 14, fontWeight: 600,
                   textTransform: 'uppercase', letterSpacing: '0.1em',
@@ -283,9 +283,10 @@ export default function BookingSection() {
           <div>
             <div style={{
               padding: '32px 28px', borderRadius: 'var(--radius-lg)',
-              background: 'rgba(196,149,106,0.04)',
+              background: 'var(--bg-card)',
               border: '1px solid var(--accent-border)',
               marginBottom: 24,
+              boxShadow: 'var(--shadow-card)',
             }}>
               <div style={{
                 fontFamily: 'var(--font-body)', fontSize: 14, fontWeight: 500,
@@ -302,7 +303,7 @@ export default function BookingSection() {
               ].map(([label, val]) => (
                 <div key={label} style={{
                   display: 'flex', justifyContent: 'space-between', padding: '10px 0',
-                  borderBottom: '1px solid rgba(196,149,106,0.06)',
+                  borderBottom: '1px solid rgba(233,75,124,0.06)',
                 }}>
                   <span style={{ fontFamily: 'var(--font-body)', fontSize: 13, color: 'var(--text-muted)' }}>{label}</span>
                   <span style={{ fontFamily: 'var(--font-body)', fontSize: 13, color: 'var(--text-secondary)' }}>{val}</span>
@@ -328,7 +329,7 @@ export default function BookingSection() {
               <div style={{
                 padding: '16px 20px', borderRadius: 'var(--radius-md)',
                 background: 'var(--bg-card)',
-                border: '1px solid rgba(196,149,106,0.06)',
+                border: '1px solid rgba(233,75,124,0.06)',
                 marginBottom: 24,
               }}>
                 <div style={{ fontFamily: 'var(--font-body)', fontSize: 12, color: 'var(--text-faint)', marginBottom: 6 }}>Notes</div>
@@ -346,7 +347,7 @@ export default function BookingSection() {
               <button onClick={handlePay} disabled={paying} style={{
                 flex: 2, padding: '16px',
                 background: 'linear-gradient(135deg, var(--accent), var(--accent-dark))',
-                color: 'var(--bg-primary)', border: 'none', borderRadius: 'var(--radius-pill)',
+                color: 'var(--text-on-accent)', border: 'none', borderRadius: 'var(--radius-pill)',
                 cursor: paying ? 'wait' : 'pointer',
                 fontFamily: 'var(--font-body)', fontSize: 14, fontWeight: 600,
                 textTransform: 'uppercase', letterSpacing: '0.1em',
@@ -390,9 +391,10 @@ export default function BookingSection() {
             </p>
             <div style={{
               padding: '20px 24px', borderRadius: 'var(--radius-lg)',
-              background: 'rgba(196,149,106,0.04)',
+              background: 'var(--bg-card)',
               border: '1px solid var(--accent-border)',
               marginBottom: 24, textAlign: 'left',
+              boxShadow: 'var(--shadow-card)',
             }}>
               <div style={{ fontFamily: 'var(--font-body)', fontSize: 12, color: 'var(--text-faint)', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Contact us to confirm</div>
               <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.8 }}>
@@ -403,7 +405,7 @@ export default function BookingSection() {
             <button onClick={() => { setStep(1); setSelectedDate(null); setSelectedTime(null); setName(''); setEmail(''); setPhone(''); setNotes(''); }} style={{
               padding: '14px 32px',
               background: 'linear-gradient(135deg, var(--accent), var(--accent-dark))',
-              color: 'var(--bg-primary)', border: 'none', borderRadius: 'var(--radius-pill)',
+              color: 'var(--text-on-accent)', border: 'none', borderRadius: 'var(--radius-pill)',
               cursor: 'pointer', fontFamily: 'var(--font-body)', fontSize: 14, fontWeight: 600,
               textTransform: 'uppercase', letterSpacing: '0.1em',
             }}>Book Another Session</button>

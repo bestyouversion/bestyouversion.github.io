@@ -1,18 +1,19 @@
-// Inline SVG illustrations matching the site's dark/gold theme
+// Inline SVG illustrations matching the site's pink/plum/gold theme
 // No external images needed — these render as React components
 
-const GOLD = '#C4956A'
-const GOLD_LIGHT = 'rgba(196,149,106,0.15)'
-const GOLD_FAINT = 'rgba(196,149,106,0.06)'
-const TEXT_MUTED = 'rgba(232,221,208,0.4)'
+const GOLD = '#5D2B3D'
+const GOLD_LIGHT = 'rgba(233,75,124,0.18)'
+const GOLD_FAINT = 'rgba(233,75,124,0.08)'
+const TEXT_MUTED = 'rgba(60,30,40,0.45)'
+const BG_FILL = '#FFF0F4'
 
 export function HeroIllustration({ width = '100%', height = 300 }) {
   return (
     <svg viewBox="0 0 800 400" width={width} height={height} style={{ display: 'block', borderRadius: 14 }}>
-      <rect width="800" height="400" fill="#13120F" />
+      <rect width="800" height="400" fill={BG_FILL} />
       {/* Soft radial glow */}
       <circle cx="400" cy="200" r="180" fill={GOLD_FAINT} />
-      <circle cx="400" cy="200" r="100" fill="rgba(196,149,106,0.08)" />
+      <circle cx="400" cy="200" r="100" fill="rgba(233,75,124,0.12)" />
       {/* Brain outline */}
       <path d="M360 260 Q320 260 310 230 Q295 200 310 170 Q320 140 350 130 Q360 110 390 105 Q420 100 440 115 Q460 105 480 115 Q510 125 510 155 Q530 170 525 200 Q520 230 500 240 Q490 260 460 260" fill="none" stroke={GOLD} strokeWidth="1.5" opacity="0.6" />
       {/* Neural connections */}
@@ -45,7 +46,7 @@ export function HeroIllustration({ width = '100%', height = 300 }) {
 export function MindfulnessIllustration({ width = '100%', height = 200 }) {
   return (
     <svg viewBox="0 0 600 300" width={width} height={height} style={{ display: 'block', borderRadius: 14 }}>
-      <rect width="600" height="300" fill="#13120F" />
+      <rect width="600" height="300" fill={BG_FILL} />
       {/* Meditation figure silhouette */}
       <circle cx="300" cy="120" r="22" fill="none" stroke={GOLD} strokeWidth="1.2" opacity="0.7" />
       <path d="M278 155 Q280 140 300 138 Q320 140 322 155" fill="none" stroke={GOLD} strokeWidth="1.2" opacity="0.7" />
@@ -74,7 +75,7 @@ export function MindfulnessIllustration({ width = '100%', height = 200 }) {
 export function GrowthIllustration({ width = '100%', height = 200 }) {
   return (
     <svg viewBox="0 0 600 300" width={width} height={height} style={{ display: 'block', borderRadius: 14 }}>
-      <rect width="600" height="300" fill="#13120F" />
+      <rect width="600" height="300" fill={BG_FILL} />
       {/* Rising sun */}
       <circle cx="300" cy="220" r="60" fill="none" stroke={GOLD} strokeWidth="0.8" opacity="0.2" />
       <circle cx="300" cy="220" r="45" fill="none" stroke={GOLD} strokeWidth="0.8" opacity="0.15" />
@@ -102,7 +103,7 @@ export function GrowthIllustration({ width = '100%', height = 200 }) {
 export function BrainIllustration({ width = '100%', height = 200 }) {
   return (
     <svg viewBox="0 0 600 300" width={width} height={height} style={{ display: 'block', borderRadius: 14 }}>
-      <rect width="600" height="300" fill="#13120F" />
+      <rect width="600" height="300" fill={BG_FILL} />
       {/* Brain halves */}
       <path d="M270 200 Q230 200 220 170 Q210 140 230 115 Q250 90 280 90 Q295 80 300 85" fill="none" stroke={GOLD} strokeWidth="1.2" opacity="0.5" />
       <path d="M330 200 Q370 200 380 170 Q390 140 370 115 Q350 90 320 90 Q305 80 300 85" fill="none" stroke={GOLD} strokeWidth="1.2" opacity="0.5" />
@@ -135,7 +136,7 @@ export function BrainIllustration({ width = '100%', height = 200 }) {
 export function TherapyRoomIllustration({ width = '100%', height = 200 }) {
   return (
     <svg viewBox="0 0 600 300" width={width} height={height} style={{ display: 'block', borderRadius: 14 }}>
-      <rect width="600" height="300" fill="#13120F" />
+      <rect width="600" height="300" fill={BG_FILL} />
       {/* Couch */}
       <path d="M180 200 Q180 170 200 165 L400 165 Q420 170 420 200" fill="none" stroke={GOLD} strokeWidth="1.2" opacity="0.5" />
       <line x1="175" y1="200" x2="425" y2="200" stroke={GOLD} strokeWidth="1" opacity="0.4" />
@@ -168,7 +169,7 @@ export function TherapyRoomIllustration({ width = '100%', height = 200 }) {
 export function ConsultationIllustration({ width = '100%', height = 280 }) {
   return (
     <svg viewBox="0 0 600 350" width={width} height={height} style={{ display: 'block', borderRadius: 14 }}>
-      <rect width="600" height="350" fill="#13120F" />
+      <rect width="600" height="350" fill={BG_FILL} />
       {/* Two figures */}
       {/* Person 1 - therapist */}
       <circle cx="220" cy="120" r="20" fill="none" stroke={GOLD} strokeWidth="1.2" opacity="0.6" />
@@ -193,7 +194,7 @@ export function ConsultationIllustration({ width = '100%', height = 280 }) {
 export function HypnotherapyIllustration({ width = '100%', height = 200 }) {
   return (
     <svg viewBox="0 0 600 300" width={width} height={height} style={{ display: 'block', borderRadius: 14 }}>
-      <rect width="600" height="300" fill="#13120F" />
+      <rect width="600" height="300" fill={BG_FILL} />
       {/* Spiral - hypnosis symbol */}
       <path d="M300 150 Q320 150 320 170 Q320 190 300 190 Q280 190 280 170 Q280 150 300 150" fill="none" stroke={GOLD} strokeWidth="1" opacity="0.5" />
       <path d="M300 140 Q330 140 330 170 Q330 200 300 200 Q270 200 270 170 Q270 140 300 140" fill="none" stroke={GOLD} strokeWidth="0.8" opacity="0.35" />
@@ -217,7 +218,7 @@ export function HypnotherapyIllustration({ width = '100%', height = 200 }) {
 export function ThinkingIllustration({ width = '100%', height = 200 }) {
   return (
     <svg viewBox="0 0 600 300" width={width} height={height} style={{ display: 'block', borderRadius: 14 }}>
-      <rect width="600" height="300" fill="#13120F" />
+      <rect width="600" height="300" fill={BG_FILL} />
       {/* Head silhouette */}
       <path d="M270 220 Q260 220 255 200 Q245 170 255 145 Q265 120 285 110 Q300 100 315 110 Q335 120 345 145 Q355 170 345 200 Q340 220 330 220" fill="none" stroke={GOLD} strokeWidth="1.2" opacity="0.5" />
       {/* Thought bubbles / gears inside */}
@@ -247,7 +248,7 @@ export function ThinkingIllustration({ width = '100%', height = 200 }) {
 export function FreedomIllustration({ width = '100%', height = 200 }) {
   return (
     <svg viewBox="0 0 600 300" width={width} height={height} style={{ display: 'block', borderRadius: 14 }}>
-      <rect width="600" height="300" fill="#13120F" />
+      <rect width="600" height="300" fill={BG_FILL} />
       {/* Breaking chains */}
       <path d="M220 160 Q235 155 250 160 Q265 165 280 160" fill="none" stroke={GOLD} strokeWidth="1.5" opacity="0.3" />
       <path d="M320 160 Q335 155 350 160 Q365 165 380 160" fill="none" stroke={GOLD} strokeWidth="1.5" opacity="0.3" />

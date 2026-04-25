@@ -32,13 +32,14 @@ export default function Services() {
             return (
               <CardWrapper key={i} {...cardProps}>
                 <div style={{
-                  padding: '36px 28px', background: 'var(--bg-card)', border: '1px solid rgba(196,149,106,0.08)',
+                  padding: '36px 28px', background: 'var(--bg-card)', border: '1px solid var(--accent-border)',
                   borderRadius: 'var(--radius-lg)', transition: 'all 0.4s cubic-bezier(.4,0,.2,1)',
                   cursor: s.link ? 'pointer' : 'default', height: '100%',
+                  boxShadow: 'var(--shadow-card)',
                 }}
-                onMouseEnter={e => { e.currentTarget.style.background = 'var(--bg-card-hover)'; e.currentTarget.style.borderColor = 'rgba(196,149,106,0.2)'; e.currentTarget.style.transform = 'translateY(-4px)' }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'var(--bg-card)'; e.currentTarget.style.borderColor = 'rgba(196,149,106,0.08)'; e.currentTarget.style.transform = 'translateY(0)' }}>
-                  <div style={{ fontFamily: 'var(--font-display)', fontSize: 32, color: 'rgba(196,149,106,0.3)', marginBottom: 16, lineHeight: 1 }}>{s.icon}</div>
+                onMouseEnter={e => { e.currentTarget.style.background = 'var(--bg-card-hover)'; e.currentTarget.style.borderColor = 'rgba(233,75,124,0.25)'; e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.boxShadow = 'var(--shadow-card-hover)' }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'var(--bg-card)'; e.currentTarget.style.borderColor = 'var(--accent-border)'; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'var(--shadow-card)' }}>
+                  <div style={{ fontFamily: 'var(--font-display)', fontSize: 32, color: 'rgba(233,75,124,0.3)', marginBottom: 16, lineHeight: 1 }}>{s.icon}</div>
                   <div style={{ fontFamily: 'var(--font-display)', fontSize: 20, fontWeight: 600, color: 'var(--text-secondary)', marginBottom: 8 }}>{s.title}</div>
                   <p style={{ fontFamily: 'var(--font-body)', fontSize: 14, lineHeight: 1.7, color: 'var(--text-muted)', margin: 0 }}>{s.desc}</p>
                   {s.link && <div style={{ marginTop: 16, fontFamily: 'var(--font-body)', fontSize: 13, fontWeight: 500, color: 'var(--accent)' }}>Learn more →</div>}
@@ -49,7 +50,7 @@ export default function Services() {
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24, marginTop: 48, alignItems: 'center' }}>
-          <div style={{ textAlign: 'center', padding: '40px 32px', background: 'rgba(196,149,106,0.04)', border: '1px solid var(--accent-border)', borderRadius: 'var(--radius-lg)' }}>
+          <div style={{ textAlign: 'center', padding: '40px 32px', background: 'var(--bg-card)', border: '1px solid var(--accent-border)', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-card)' }}>
             <div style={{ fontFamily: 'var(--font-display)', fontSize: 28, fontWeight: 500, color: 'var(--text-secondary)', marginBottom: 8 }}>Consultation</div>
             <div style={{ fontFamily: 'var(--font-body)', fontSize: 14, color: 'var(--text-muted)', marginBottom: 4 }}>1 Hour Session</div>
             <div style={{ fontFamily: 'var(--font-display)', fontSize: 36, fontWeight: 600, color: 'var(--accent)', marginBottom: 4 }}>₱1,500</div>

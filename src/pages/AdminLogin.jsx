@@ -23,8 +23,8 @@ export default function AdminLogin() {
 
   const inputStyle = {
     width: '100%', padding: '14px 16px',
-    background: 'rgba(232,221,208,0.04)',
-    border: '1px solid rgba(196,149,106,0.12)',
+    background: 'rgba(255,255,255,0.6)',
+    border: '1px solid rgba(233,75,124,0.12)',
     borderRadius: 'var(--radius-md)', color: 'var(--text-secondary)',
     fontFamily: 'var(--font-body)', fontSize: 14,
     outline: 'none', transition: 'border-color 0.3s',
@@ -43,7 +43,7 @@ export default function AdminLogin() {
             background: 'linear-gradient(135deg, var(--accent), var(--accent-dark))',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             fontFamily: 'var(--font-display)', fontSize: 24, fontWeight: 700,
-            color: 'var(--text-primary)',
+            color: 'var(--text-on-accent)',
           }}>B</div>
           <h1 style={{
             fontFamily: 'var(--font-display)', fontSize: 28, fontWeight: 500,
@@ -68,19 +68,19 @@ export default function AdminLogin() {
             type="email" placeholder="Email" value={email}
             onChange={e => setEmail(e.target.value)} style={inputStyle}
             onFocus={e => e.target.style.borderColor = 'var(--accent-border-hover)'}
-            onBlur={e => e.target.style.borderColor = 'rgba(196,149,106,0.12)'}
+            onBlur={e => e.target.style.borderColor = 'rgba(233,75,124,0.12)'}
           />
           <input
             type="password" placeholder="Password" value={password}
             onChange={e => setPassword(e.target.value)} style={inputStyle}
             onFocus={e => e.target.style.borderColor = 'var(--accent-border-hover)'}
-            onBlur={e => e.target.style.borderColor = 'rgba(196,149,106,0.12)'}
+            onBlur={e => e.target.style.borderColor = 'rgba(233,75,124,0.12)'}
             onKeyDown={e => e.key === 'Enter' && handleSubmit(e)}
           />
           <button onClick={handleSubmit} disabled={loading} style={{
             width: '100%', padding: '16px',
             background: 'linear-gradient(135deg, var(--accent), var(--accent-dark))',
-            color: 'var(--bg-primary)', border: 'none', borderRadius: 'var(--radius-pill)',
+            color: 'var(--text-on-accent)', border: 'none', borderRadius: 'var(--radius-pill)',
             cursor: loading ? 'wait' : 'pointer',
             fontFamily: 'var(--font-body)', fontSize: 14, fontWeight: 600,
             textTransform: 'uppercase', letterSpacing: '0.1em',

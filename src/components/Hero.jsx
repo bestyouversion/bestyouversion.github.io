@@ -8,17 +8,17 @@ export default function Hero({ onBook }) {
     <section id="home" style={{
       minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center',
       position: 'relative', overflow: 'hidden',
-      background: 'linear-gradient(165deg, #0F0E0C 0%, #1A1714 40%, #0F0E0C 100%)',
+      background: 'linear-gradient(165deg, #FCDDE5 0%, #FFF0F4 45%, #FCDDE5 100%)',
     }}>
       {/* Ambient glow */}
       <div style={{
         position: 'absolute', top: '10%', right: '-10%', width: 600, height: 600,
-        borderRadius: '50%', background: 'radial-gradient(circle, rgba(196,149,106,0.06) 0%, transparent 70%)',
+        borderRadius: '50%', background: 'radial-gradient(circle, rgba(233,75,124,0.18) 0%, transparent 70%)',
         filter: 'blur(60px)', pointerEvents: 'none',
       }} />
       <div style={{
         position: 'absolute', bottom: '5%', left: '-5%', width: 400, height: 400,
-        borderRadius: '50%', background: 'radial-gradient(circle, rgba(139,106,74,0.05) 0%, transparent 70%)',
+        borderRadius: '50%', background: 'radial-gradient(circle, rgba(212,160,78,0.18) 0%, transparent 70%)',
         filter: 'blur(40px)', pointerEvents: 'none',
       }} />
 
@@ -58,12 +58,13 @@ export default function Hero({ onBook }) {
             fontFamily: 'var(--font-body)', fontSize: 13, fontWeight: 600,
             textTransform: 'uppercase', letterSpacing: '0.15em',
             background: 'linear-gradient(135deg, var(--accent), var(--accent-dark))',
-            color: 'var(--bg-primary)', border: 'none', borderRadius: 'var(--radius-pill)',
+            color: 'var(--text-on-accent)', border: 'none', borderRadius: 'var(--radius-pill)',
             padding: '16px 40px', cursor: 'pointer',
+            boxShadow: 'var(--shadow-button)',
             transition: 'transform 0.3s, box-shadow 0.3s',
           }}
-          onMouseEnter={e => { e.target.style.transform = 'translateY(-2px)'; e.target.style.boxShadow = '0 8px 32px rgba(196,149,106,0.3)' }}
-          onMouseLeave={e => { e.target.style.transform = 'translateY(0)'; e.target.style.boxShadow = 'none' }}
+          onMouseEnter={e => { e.target.style.transform = 'translateY(-2px)'; e.target.style.boxShadow = '0 12px 32px rgba(233,75,124,0.45)' }}
+          onMouseLeave={e => { e.target.style.transform = 'translateY(0)'; e.target.style.boxShadow = 'var(--shadow-button)' }}
           >Book a Session</button>
 
           <button
