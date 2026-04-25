@@ -7,6 +7,7 @@ import Services from './components/Services'
 import BookingSection from './components/BookingSection'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import MessengerChat from './components/MessengerChat'
 import AdminLogin from './pages/AdminLogin'
 import AdminDashboard from './pages/AdminDashboard'
 import TherapyPage from './pages/TherapyPage'
@@ -50,15 +51,18 @@ function AdminPage() {
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/therapy/:type" element={<TherapyPage />} />
-      <Route path="/articles" element={<ArticlesPage />} />
-      <Route path="/articles/:id" element={<ArticlePage />} />
-      <Route path="/admin" element={<AdminPage />} />
-      <Route path="/payment/success" element={<PaymentSuccess />} />
-      <Route path="/payment/failed" element={<PaymentFailed />} />
-      <Route path="/privacy" element={<PrivacyPage />} />
-    </Routes>
+    <>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/therapy/:type" element={<TherapyPage />} />
+        <Route path="/articles" element={<ArticlesPage />} />
+        <Route path="/articles/:id" element={<ArticlePage />} />
+        <Route path="/admin" element={<AdminPage />} />
+        <Route path="/payment/success" element={<PaymentSuccess />} />
+        <Route path="/payment/failed" element={<PaymentFailed />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
+      </Routes>
+      <MessengerChat />
+    </>
   )
 }
